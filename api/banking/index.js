@@ -13,20 +13,36 @@ class BankApi {
         })
     }
 
-    getAccounts(auth, bankId) {
-        return this.bankAxios.get(`/banking/${bankId}/accounts`, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    getAccounts(auth, bankId, cId) {
+        let url = `/banking/${bankId}/accounts`
+        if (cId) {
+            url = `${url}?companyId=${cId}`
+        }
+        return this.bankAxios.get(url, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
     }
     
-    getAccountsById(auth, bankId, accountId) {
-        return this.bankAxios.get(`/banking/${bankId}/accounts/${accountId}`, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    getAccountsById(auth, bankId, accountId, cId) {
+        let url = `/banking/${bankId}/accounts/${accountId}`
+        if (cId) {
+            url = `${url}?companyId=${cId}`
+        }
+        return this.bankAxios.get(url, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
     }
     
-    getAccountTransactions(auth, bankId, accountId) {
-        return this.bankAxios.get(`/banking/${bankId}/accounts/${accountId}/transactions`, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    getAccountTransactions(auth, bankId, accountId, cId) {
+        let url = `/banking/${bankId}/accounts/${accountId}/transactions`
+        if (cId) {
+            url = `${url}?companyId=${cId}`
+        }
+        return this.bankAxios.get(url, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
     }
     
-    getAccountBalances(auth, bankId, accountId) {
-        return this.bankAxios.get(`/banking/${bankId}/accounts/${accountId}/balances`, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    getAccountBalances(auth, bankId, accountId, cId) {
+        let url = `/banking/${bankId}/accounts/${accountId}/balances`
+        if (cId) {
+            url = `${url}?companyId=${cId}`
+        }
+        return this.bankAxios.get(url, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
     }
 }
 
