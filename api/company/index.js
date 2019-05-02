@@ -11,7 +11,7 @@ const getCompanies = (auth) => {
     return compAxios.get("/companies", { headers: apiHelper.createHeaders(auth) });
 }
 
-const getCompanieById = (auth, cId) => {
+const getCompanyById = (auth, cId) => {
     return compAxios.get(`/companies/${cId}`, { headers: apiHelper.createHeaders(auth) });
 }
 
@@ -20,8 +20,7 @@ const createCompany = (auth, company) => {
 }
 
 exports.company = {
-    getAccounts,
-    getAccountsById,
-    getAccountBalances,
-    getAccountTransactions
+    getCompanies,
+    getCompanyById,
+    createCompany
 }
