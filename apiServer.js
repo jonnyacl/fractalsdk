@@ -5,6 +5,8 @@ const express = require('express');
 const app = express();
 const authApi = require("./api/auth").auth
 const bankApi = require("./api/banking").banking
+const aApi = authApi.createAuthApi("REPLACE", "faekpartner");
+const bApi = bankApi.createBankApi("REPLACE", "faekpartner");
 
 app.get('/token', (req, res) => {
     authApi.getToken().then(resp => {
@@ -18,8 +20,8 @@ app.get('/token', (req, res) => {
 });
 
 app.get('/banking/accounts', (req, res) => {
-    authApi.getToken().then(resp => {
-        bankApi.getAccounts(resp.data.access_token, 7).then(bankResp => {
+    aApi.getToken().then(resp => {
+        bApi.getAccounts(resp.data.access_token, 7).then(bankResp => {
             console.log(bankResp.data)
             res.send(bankResp.data)
         }).catch(err => {

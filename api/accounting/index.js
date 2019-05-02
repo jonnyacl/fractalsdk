@@ -7,6 +7,17 @@ const acctAxios = axios.create({
     timeout: 1000,
 })
 
+class AccountingApi {
+    constructor(apiKey, partner) {
+        this.apiKey = apiKey;
+        this.partner = partner;
+        this.bankAxios = axios.create({
+            baseURL: config.bankUrl,
+            timeout: 1000,
+        })
+    }
+}
+
 const getAccounts = (auth, bankId) => {
     return acctAxios.get(`/banking/${bankId}/accounts`, { headers: apiHelper.createHeaders(auth) });
 }
