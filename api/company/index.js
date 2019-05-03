@@ -12,16 +12,16 @@ class CompanyApi {
         })
     }
 
-    getCompanies(auth) {
-        return this.compAxios.get("/companies", { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    getCompanies(authToken) {
+        return this.compAxios.get("/companies", { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getCompanyById = (auth, cId) => {
-        return this.compAxios.get(`/companies/${cId}`, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    getCompanyById = (authToken, cId) => {
+        return this.compAxios.get(`/companies/${cId}`, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    createCompany(auth, company) {
-        return this.compAxios.post("/companies", company, { headers: apiHelper.createHeaders(auth, this.apiKey, this.partner) });
+    createCompany(authToken, company) {
+        return this.compAxios.post("/companies", company, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
 }
 
