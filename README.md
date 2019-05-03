@@ -22,6 +22,7 @@ Requests using the api objects return promises, so to fetch data, something alon
 ```
 bankApi.getAccounts(access_token, 7).then(bankResp => {
     const respData = bankResp.data;
+    console.log(JSON.stringify(respData));
 }).catch(err => {
     console.log(err);
 });
