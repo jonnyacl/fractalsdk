@@ -1,3 +1,7 @@
+/**
+ * Example node server using the SDK
+ */
+
 const config = require("./config").config
 
 const express = require('express');
