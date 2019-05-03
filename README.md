@@ -27,6 +27,6 @@ bankApi.getAccounts(access_token, 7).then(bankResp => {
     console.log(err);
 });
 ```
-Where ```access_token``` is a token returned by the Auth api /token endpoint
+Where ```access_token``` is a token returned by the Auth api /token endpoint and 7 is the bank ID
 
 To see the Fractal API docs and create an app, please go to https://developer.fractal-labs.com/
