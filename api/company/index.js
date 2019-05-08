@@ -16,7 +16,7 @@ class CompanyApi {
         return this.compAxios.get("/companies", { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getCompanyById = (authToken, cId) => {
+    getCompanyById(authToken, cId) {
         return this.compAxios.get(`/companies/${cId}`, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
     
