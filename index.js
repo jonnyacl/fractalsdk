@@ -11,10 +11,6 @@ const createAuthApi = (apiKey, partner) => {
     return authApi.createAuthApi(apiKey, partner)
 }
 
-const createCompanyApi = (apiKey, partner) => {
-    return authApi.createAuthApi(apiKey, partner)
-}
-
 const createAccountingApi = (apiKey, partner) => {
     return acctApi.createAccountingApi(apiKey, partner)
 }
